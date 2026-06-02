@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IIQE 卷一 + 卷三极限突击通关神器</title>
+  <style>
+    :root {
+      --bg: #eef5f1;
+      --panel: #ffffff;
+      --ink: #17212b;
+      --muted: #647483;
+      --line: #d9e5df;
+      --green: #1f7a5c;
+      --green-soft: #e7f6ef;
+      --blue: #246a8f;
+      --blue-soft: #e7f2f7;
+      --red: #bd2f3a;
+      --red-soft: #fff0f1;
+      --yellow: #ffe680;
+      --amber: #ad7017;
+      --shadow: 0 10px 30px rgba(24, 45, 35, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(68, 142, 113, .12), transparent 30%),
+        linear-gradient(180deg, #f6faf8 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+    header {
+      padding: 24px 16px 14px;
+      background: #123229;
+      color: #fff;
+      border-bottom: 4px solid #7cc39e;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 16px;
+      align-items: end;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 4vw, 40px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    .subtitle { margin: 0; color: #d8efe5; max-width: 850px; }
+    .exam-date {
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.08);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+    .exam-date b { display: block; font-size: 22px; }
+    main { padding: 18px 16px 34px; }
+    .tabs {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px;
+      margin: 0 auto 16px;
+      background: rgba(238,245,241,.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #24443a;
+      border-radius: 10px;
+      padding: 10px 8px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+    .tab-btn:hover { transform: translateY(-1px); }
+    .tab-btn.active {
+      color: #fff;
+      border-color: #1f7a5c;
+      background: #1f7a5c;
+      box-shadow: 0 8px 18px rgba(31,122,92,.22);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    section, .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+    section { padding: 18px; margin: 14px 0; }
+    h2 { margin: 0 0 12px; font-size: 24px; line-height: 1.25; }
+    h3 { margin: 20px 0 10px; font-size: 18px; color: #154838; }
+    h4 { margin: 12px 0 6px; font-size: 15px; color: #274c40; }
+    p { margin: 8px 0; }
+    ul, ol { margin: 8px 0; padding-left: 22px; }
+    li { margin: 5px 0; }
+    .grid { display: grid; gap: 12px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { padding: 14px; box-shadow: none; }
+    .dash-card {
+      min-height: 148px;
+      border-left: 6px solid var(--green);
+    }
+    .big {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--green);
+    }
+    .muted { color: var(--muted); font-size: 14px; }
+    .tag {
+      display: inline-block;
+      margin: 3px 4px 3px 0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: #1e5b79;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .hot {
+      color: var(--red);
+      font-weight: 900;
+    }
+    mark {
+      background: linear-gradient(transparent 46%, var(--yellow) 46%);
+      padding: 0 2px;
+      border-radius: 2px;
+      color: inherit;
+      font-weight: 900;
+    }
+    .formula {
+      border: 1px dashed #e0b64b;
+      background: #fff9dc;
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: #5b3d03;
+      font-weight: 800;
+    }
+    .mentor {
+      border-left: 5px solid var(--green);
+      background: var(--green-soft);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 10px 0;
+    }
+    .danger {
+      border-left: 5px solid var(--red);
+      background: var(--red-soft);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 10px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      background: #fff;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      vertical-align: top;
+    }
+    th { background: #e9f4ef; text-align: left; }
+    .priority {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .priority:last-child { border-bottom: 0; }
+    .level {
+      display: inline-block;
+      width: max-content;
+      border-radius: 8px;
+      padding: 4px 8px;
+      background: #123229;
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .quiz-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn, .reset-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .filter-btn.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .reset-btn {
+      background: #123229;
+      color: #fff;
+      border-color: #123229;
+    }
+    .question-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 14px;
+      margin: 12px 0;
+    }
+    .q-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .q-label {
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .option {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: #f9fcfa;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 8px 0;
+      cursor: pointer;
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .option:hover { border-color: #8bbfa7; background: #f2faf6; }
+    .option.correct {
+      border-color: #1f7a5c;
+      background: #def5e9;
+      color: #124d39;
+      font-weight: 900;
+    }
+    .option.wrong {
+      border-color: #bd2f3a;
+      background: #ffe9ec;
+      color: #8b1d28;
+      font-weight: 900;
+    }
+    .analysis-box {
+      display: none;
+      margin-top: 10px;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: var(--blue-soft);
+      border: 1px solid #c7e1ec;
+    }
+    .analysis-box.show { display: block; }
+    .score {
+      font-weight: 900;
+      color: #123229;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+    }
+    .small-note { font-size: 13px; color: var(--muted); }
+    @media (max-width: 850px) {
+      .hero, .grid.two, .grid.three { grid-template-columns: 1fr; }
+      .tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); position: static; }
+      .priority { grid-template-columns: 1fr; }
+      section { padding: 14px; }
+    }
+    @media print {
+      body { background: #fff; }
+      header, .tabs, .quiz-top { display: none; }
+      .tab-panel { display: block; }
+      section, .card, .question-card { box-shadow: none; break-inside: avoid; }
+      .analysis-box { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <h1>IIQE 卷一 + 卷三极限突击通关神器</h1>
+        <p class="subtitle">给零基础、时间极少、目标 70% 压线及格的人用。先抓题库分布，再背口诀和例外，最后用交互题巩固。</p>
+      </div>
+      <div class="exam-date">
+        <span>考试日期</span>
+        <b>2026-06-04</b>
+        <span>后天上场，目标不是满分，是稳过线。</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="tabs" aria-label="主导航">
+      <button class="tab-btn active" data-tab="dashboard">考试规则</button>
+      <button class="tab-btn" data-tab="paper1">卷一速记</button>
+      <button class="tab-btn" data-tab="paper3">卷三速记</button>
+      <button class="tab-btn" data-tab="quiz">模拟刷题</button>
+    </nav>
+
+    <div id="dashboard" class="tab-panel active">
+      <section>
+        <h2>1. 考试规则看板</h2>
+        <div class="grid three">
+          <div class="card dash-card">
+            <span class="big">卷一</span>
+            <p><strong>保险原理及实务</strong></p>
+            <p>75 题 / 2 小时 / 70% 及格</p>
+            <p><mark>至少答对 53 题</mark></p>
+          </div>
+          <div class="card dash-card">
+            <span class="big">卷三</span>
+            <p><strong>长期保险</strong></p>
+            <p>50 题 / 1 小时 15 分钟 / 70% 及格</p>
+            <p><mark>至少答对 35 题</mark></p>
+          </div>
+          <div class="card dash-card">
+            <span class="big">策略</span>
+            <p><strong>先拿高权重题</strong></p>
+            <p>不用学成专家。把定义、例外、易混点背熟，就能冲过 70%。</p>
+          </div>
+        </div>
+        <div class="mentor">
+          <strong>导师打气：</strong>你现在不是从零学保险行业，你是在做一场选择题通关。先抓大分区，能拿的分先拿下，后天就有机会过线。
+        </div>
+      </section>
+
+      <section>
+        <h2>2. 题库分布：先看哪里最划算</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>卷一必抢分区</h3>
+            <div class="priority">
+              <span class="level">第 1 优先</span>
+              <div><strong>第 3 章：保险原则</strong>，30%，约 23 题。六大原则必须背到能默写。</div>
+            </div>
+            <div class="priority">
+              <span class="level">第 2 优先</span>
+              <div><strong>第 6 章：监管框架</strong>，21%，约 16 题。IA、牌照、代理/经纪、操守。</div>
+            </div>
+            <div class="priority">
+              <span class="level">第 3 优先</span>
+              <div><strong>第 2 章：法律原则</strong>，16%，约 12 题。合同要素、代理关系。</div>
+            </div>
+            <p class="small-note">卷一这三章合计约 51 题，是压线及格的核心。</p>
+          </div>
+          <div class="card">
+            <h3>卷三必抢分区</h3>
+            <div class="priority">
+              <span class="level">第 1 优先</span>
+              <div><strong>第 3 章：附加保障</strong>，24%，约 12 题。WP、DI、CI、AD&D 必分清。</div>
+            </div>
+            <div class="priority">
+              <span class="level">第 2 优先</span>
+              <div><strong>第 4 章：保单条款</strong>，24%，约 12 题。宽限期、不可异议、自杀、复效。</div>
+            </div>
+            <div class="priority">
+              <span class="level">第 3 优先</span>
+              <div><strong>第 5 章：程序</strong>，22%，约 11 题。申请、核保、保单替换、理赔。</div>
+            </div>
+            <p class="small-note">卷三第 3、4、5 章合计约 35 题，刚好就是及格线。</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="paper1" class="tab-panel">
+      <section>
+        <h2>卷一速记：保险原理及实务</h2>
+        <p class="formula">卷一总口诀：<mark>风险先分类，合同看六素，原则背六个，寿险别弥偿。</mark></p>
+
+        <h3>1. 风险的定义与分类</h3>
+        <ul>
+          <li><span class="hot">风险</span>：损失发生的不确定性，不等于损失已经发生。</li>
+          <li><span class="hot">纯粹风险</span>：只有“损失”或“没事”，没有赚钱机会。保险主要保这个。</li>
+          <li><span class="hot">投机风险</span>：可能赚，也可能亏。一般不保。</li>
+        </ul>
+        <div class="formula">口诀：<strong>纯粹可保，投机不保。</strong></div>
+        <div class="mentor"><strong>例子：</strong>房子失火是纯粹风险；买股票亏钱是投机风险。保险公司不负责你炒股亏损。</div>
+
+        <h3>2. 保险合同的六个要素</h3>
+        <ul>
+          <li><mark>要约</mark>：一方提出投保或承保条件。</li>
+          <li><mark>承诺</mark>：另一方接受。</li>
+          <li><mark>代价</mark>：客户交保费，保险人承担风险。</li>
+          <li><mark>订约意图</mark>：双方真的想建立法律关系。</li>
+          <li><mark>行为能力</mark>：订约人有法律能力。</li>
+          <li><mark>合法性</mark>：合同目的不能违法。</li>
+        </ul>
+        <div class="formula">口诀：<strong>要承代，意能法。</strong></div>
+
+        <h3>3. 六大基本原则：必背核心</h3>
+        <div class="grid two">
+          <div class="card">
+            <h4><span class="hot">最高诚信</span> Utmost Good Faith</h4>
+            <ul>
+              <li>投保人要披露会影响承保决定的<span class="hot">重要事实</span>。</li>
+              <li>健康、职业、危险嗜好、过往索赔都可能重要。</li>
+              <li>例外：保险人已知道、应知道、公开常识、降低风险、已被保险人放弃询问的事实，通常不用主动披露。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>明知自己有严重心脏病却不说，保险人可能拒绝或撤销。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">可保利益</span> Insurable Interest</h4>
+            <ul>
+              <li>你和保险标的有法律认可的利益关系。</li>
+              <li>出事会让你受损，才可以保。</li>
+              <li>寿险中，自己对自己通常有无限可保利益；债权人对债务人通常限于债务金额。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>你能保自己的房子，不能随便保陌生人的房子等它失火。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">弥偿</span> Indemnity</h4>
+            <ul>
+              <li>赔偿目标是回到损失前状态，不让你赚钱。</li>
+              <li>主要适用于财产险、责任险。</li>
+              <li><span class="hot">必考例外：</span>人寿保险通常不是弥偿合同。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>车修理费 5 万，保险不应赔你 10 万让你赚差价。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">代位</span> Subrogation</h4>
+            <ul>
+              <li>保险人赔你后，取得你向第三者追偿的权利。</li>
+              <li>目的是防止你“双重收钱”。</li>
+              <li>通常在弥偿保险中出现；寿险主险通常不适用。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>你的车被别人撞，保险公司先赔你，再向肇事司机追钱。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">分担</span> Contribution</h4>
+            <ul>
+              <li>同一损失被多份保险承保，保险人之间按比例分摊。</li>
+              <li>通常要求同一标的、同一利益、同一风险、同一损失。</li>
+              <li>也是弥偿原则的延伸。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>同一仓库买了两份火险，失火后不是两边各赔一次让你发财，而是分摊。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">近因</span> Proximate Cause</h4>
+            <ul>
+              <li>看造成损失的主导、有效原因。</li>
+              <li>不是时间上最后一个原因。</li>
+              <li>判断主因是承保风险、除外风险还是未保风险。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>风暴打破窗户，雨水进屋损坏家具，主因可能是风暴，不是“雨水是最后接触家具”。</p>
+          </div>
+        </div>
+
+        <div class="danger">
+          <strong>卷一必考陷阱：</strong>看到“所有保险都适用弥偿/代位/分担”，大概率错。寿险主险通常不是弥偿。
+        </div>
+      </section>
+    </div>
+
+    <div id="paper3" class="tab-panel">
+      <section>
+        <h2>卷三速记：长期保险</h2>
+        <p class="formula">卷三总口诀：<mark>产品看期限，条款看期限，Rider 看触发。</mark></p>
+
+        <h3>1. 人寿保险种类：核心区别</h3>
+        <table>
+          <thead>
+            <tr><th>产品</th><th>你要记什么</th><th>白话理解</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="hot">定期寿险 Term</span></td>
+              <td>保障固定期间；通常无现金价值；保费低。</td>
+              <td>像租房：租期内有保障，期满没事通常不返钱。</td>
+            </tr>
+            <tr>
+              <td><span class="hot">终身寿险 Whole Life</span></td>
+              <td>保障终身；通常有现金价值；保费较高。</td>
+              <td>像买房：长期持有，慢慢累积价值。</td>
+            </tr>
+            <tr>
+              <td><span class="hot">储蓄/两全 Endowment</span></td>
+              <td>期间身故赔；到期生存也给付。</td>
+              <td>既保命，也像强制储蓄，到期能拿钱。</td>
+            </tr>
+            <tr>
+              <td><span class="hot">投资相连 Unit-linked / ILAS</span></td>
+              <td>保单价值和投资表现挂钩；投资风险通常由客户承担。</td>
+              <td>保险壳里面放投资，赚亏看投资表现，不保证稳赚。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="formula">口诀：<strong>定期便宜无现金，终身长期有价值，两全到期也给，投连风险自己扛。</strong></div>
+
+        <h3>2. 寿险保单常见条款</h3>
+        <div class="grid two">
+          <div class="card">
+            <h4><span class="hot">宽限期</span> Grace Period</h4>
+            <ul>
+              <li>续期保费到期后，仍给一段时间缴费。</li>
+              <li>常见为 30/31 天。</li>
+              <li>不是免费保障；理赔时可扣欠缴保费。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>忘交续期保费，但还在宽限期内身故，保险一般仍有效，只是扣回欠缴保费。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">不可异议条款</span> Incontestability</h4>
+            <ul>
+              <li>保单生效经过一定期间后，保险人通常不能再因非欺诈性误述撤销保单。</li>
+              <li>常考期限：通常两年。</li>
+              <li>欺诈、无可保利益、违法等仍可能是例外。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>小错误过了期限通常不能被无限追究，但故意欺诈不受保护。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">自杀条款</span> Suicide Clause</h4>
+            <ul>
+              <li>保单初期自杀通常不赔死亡保险金。</li>
+              <li>一般按条款退还已缴保费并扣除欠款。</li>
+              <li>过了条款期限后，按保单约定处理。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>刚买高额寿险就自杀，保险人不会让人利用保险制造道德风险。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">复效条款</span> Reinstatement</h4>
+            <ul>
+              <li>保单失效后，在规定期限内申请恢复。</li>
+              <li>通常要补交欠费和利息。</li>
+              <li>通常要重新证明仍可受保。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>断供导致保单失效，不是说一句“我要恢复”就行，还要补钱并可能重新核保。</p>
+          </div>
+        </div>
+
+        <h3>3. 附加保单 Riders：看触发条件</h3>
+        <ul>
+          <li><span class="hot">Waiver of Premium 免缴保费</span>：伤残后不用继续交保费，主保单继续。</li>
+          <li><span class="hot">Disability Income 伤残收入</span>：伤残后定期给收入补偿。</li>
+          <li><span class="hot">Accidental Death 意外身故</span>：因意外身故，额外给付。</li>
+          <li><span class="hot">Critical Illness 危疾</span>：确诊指定严重疾病，按条款给付。</li>
+          <li><span class="hot">Guaranteed Insurability 保证可保性</span>：指定时间或事件可加保，通常不用重新健康证明。</li>
+        </ul>
+        <div class="formula">口诀：<strong>WP 免交钱，DI 给收入，AD 看意外，CI 看疾病，GIO 免体检加保。</strong></div>
+        <div class="danger">
+          <strong>卷三必考陷阱：</strong>冷静期是新保单反悔；宽限期是续期保费迟交。两者不是一回事。
+        </div>
+      </section>
+    </div>
+
+    <div id="quiz" class="tab-panel">
+      <section>
+        <h2>必考真题模拟器</h2>
+        <p class="small-note">以下是原创 IIQE 风格模拟题，按高频官方考点设计，不是官方题库或泄题。点击选项后会立即显示对错和导师解析。</p>
+        <div class="quiz-top">
+          <div class="filter-row">
+            <button class="filter-btn active" data-filter="all">全部 20 题</button>
+            <button class="filter-btn" data-filter="p1">卷一 10 题</button>
+            <button class="filter-btn" data-filter="p3">卷三 10 题</button>
+          </div>
+          <div class="filter-row">
+            <span class="score" id="scoreText">得分：0 / 0</span>
+            <button class="reset-btn" id="resetQuiz">重新刷题</button>
+          </div>
+        </div>
+        <div id="quizList"></div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const questions = [
+      {
+        paper: "p1",
+        label: "卷一 高频题 1",
+        q: "哪一项最能说明“纯粹风险”？",
+        options: ["买股票可能升也可能跌", "赌博可能赢钱也可能输钱", "仓库可能失火或没有损失", "开新店可能赚钱也可能亏损"],
+        answer: 2,
+        explain: "纯粹风险只有损失或无损失，没有获利机会。仓库失火就是典型可保纯粹风险。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 2",
+        q: "最高诚信原则下，投保人最需要披露的是哪类事实？",
+        options: ["投保人觉得有趣的事实", "会影响审慎保险人承保或定价的重要事实", "所有亲友的个人资料", "保险人已经明确表示不需要的事实"],
+        answer: 1,
+        explain: "重要事实就是会影响保险人是否承保、如何承保、收多少保费的事实。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 3",
+        q: "以下哪项最符合可保利益原则？",
+        options: ["任何人都可以替陌生人投保高额寿险", "被保险对象受损会令投保人有法律认可的损失", "只要愿意交保费就一定有可保利益", "可保利益只适用于汽车保险"],
+        answer: 1,
+        explain: "可保利益的核心是：出事会让你受损。没有这种关系，保险会变成赌博。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 4",
+        q: "关于弥偿原则，下列哪项正确？",
+        options: ["目的是让被保险人从损失中获利", "通常适用于人寿保险主险", "目的是使被保险人回复损失前财务状态", "保险人必须赔偿超过实际损失"],
+        answer: 2,
+        explain: "弥偿就是赔回损失，不让你赚钱。寿险主险通常不是弥偿合同，这是必考例外。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 5",
+        q: "代位权通常在什么情况下产生？",
+        options: ["保险人作出弥偿赔偿后", "投保人提交投保申请时", "保单一签发就自动产生", "受益人收取寿险赔偿后"],
+        answer: 0,
+        explain: "代位是保险人赔了你以后，站到你的位置向第三者追偿，防止你双重获利。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 6",
+        q: "分担原则通常适用于哪种情况？",
+        options: ["同一损失被多份有效弥偿保险承保", "投保人拥有一份寿险保单", "保险人不想赔款时", "所有长期保险保单"],
+        answer: 0,
+        explain: "同一标的、同一利益、同一风险、同一损失被多份保单承保，保险人之间才谈分担。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 7",
+        q: "近因原则中的“近因”是指什么？",
+        options: ["时间上最后发生的原因", "最容易证明的原因", "造成损失的主导及有效原因", "被保险人首先想到的原因"],
+        answer: 2,
+        explain: "近因不是最后原因，而是主导、有效导致损失的原因。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 8",
+        q: "下列哪一组属于保险合同成立的基本要素？",
+        options: ["要约、承诺、代价、合法性", "红利、贷款、复效、退保", "核保、理赔、再保险、精算", "近因、代位、分担、弥偿"],
+        answer: 0,
+        explain: "合同基本要素记口诀：要承代，意能法。A 选项是其中核心。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 9",
+        q: "保险代理人通常代表谁？",
+        options: ["保险人", "所有投保人", "法院", "受益人"],
+        answer: 0,
+        explain: "考试默认逻辑：代理人通常代表保险人，经纪通常代表客户。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 高频题 10",
+        q: "购买保险在风险管理中最接近哪一种方法？",
+        options: ["避免风险", "风险转移", "增加风险", "制造风险"],
+        answer: 1,
+        explain: "保险就是把财务损失风险转移给保险人，是典型风险转移工具。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 1",
+        q: "定期寿险的最典型特征是什么？",
+        options: ["保障固定期间，通常无现金价值", "保障终身并必定有高额红利", "主要用于医疗费用报销", "一定与投资基金挂钩"],
+        answer: 0,
+        explain: "定期寿险像“租保障”：期限内有保障，通常便宜且没有现金价值。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 2",
+        q: "终身寿险与定期寿险的核心区别通常是？",
+        options: ["终身寿险只保障一年", "终身寿险通常保障终身并累积现金价值", "定期寿险一定有现金价值", "两者没有区别"],
+        answer: 1,
+        explain: "终身寿险通常保障一生，并可累积现金价值；定期寿险通常只保指定期间。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 3",
+        q: "两全/储蓄寿险 Endowment 的关键特点是？",
+        options: ["只在受保人死亡时给付", "期满生存或期间身故均可能给付", "没有任何储蓄成分", "只适用于一般保险"],
+        answer: 1,
+        explain: "两全就是两头都考虑：期间身故赔，到期生存也可给付。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 4",
+        q: "投资相连长期保险最重要的风险提示是？",
+        options: ["投资风险通常由保单持有人承担", "保险人保证投资一定盈利", "没有任何费用", "一定没有保险成分"],
+        answer: 0,
+        explain: "投连保单价值与投资表现挂钩，客户通常要承担投资亏损风险。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 5",
+        q: "宽限期 Grace Period 主要处理什么情况？",
+        options: ["新保单反悔取消", "续期保费到期后迟交", "指定受益人", "更改投保年龄"],
+        answer: 1,
+        explain: "宽限期是旧保单续期保费迟交时的缓冲期，不是新单反悔期。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 6",
+        q: "不可异议条款 Incontestability 的作用通常是？",
+        options: ["经过指定期间后限制保险人因非欺诈性误述撤销保单", "让投保人永远不用披露健康资料", "保证所有索赔必定赔付", "取消自杀条款"],
+        answer: 0,
+        explain: "不可异议不是保护欺诈，而是防止保险人过了期限后无限追究非欺诈性错误。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 7",
+        q: "自杀条款的主要目的是什么？",
+        options: ["鼓励客户购买高额保险", "防止有人刚投保后利用自杀取得保险金", "取消所有死亡保障", "保证初期自杀也全额赔偿"],
+        answer: 1,
+        explain: "自杀条款是为了防止道德风险。刚投保后自杀通常不赔死亡保险金，按条款处理保费。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 8",
+        q: "保单复效 Reinstatement 通常需要什么？",
+        options: ["只要口头通知即可", "补交欠缴保费及利息，并可能提交可保证明", "自动恢复且无需费用", "更换受益人即可"],
+        answer: 1,
+        explain: "复效不是自动复活。通常要补钱，还要证明健康和风险仍可接受。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 9",
+        q: "Waiver of Premium Rider 的作用是？",
+        options: ["伤残符合条件后豁免后续保费", "保证投资收益", "把定期寿险变成年金", "取消宽限期"],
+        answer: 0,
+        explain: "WP 是免交保费，不是给现金收入。伤残收入 Rider 才是给收入。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 高频题 10",
+        q: "关于附加保单 Riders，下列哪项最正确？",
+        options: ["只能降低保障", "可在主保单上增加特定额外保障", "一定不需要额外保费", "与主保单完全无关"],
+        answer: 1,
+        explain: "Rider 是附加在主保单上的额外保障，例如危疾、意外身故、免缴保费等。"
+      }
+    ];
+
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const panels = document.querySelectorAll(".tab-panel");
+    tabButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach(b => b.classList.remove("active"));
+        panels.forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+
+    let currentFilter = "all";
+    const answered = new Map();
+    const quizList = document.getElementById("quizList");
+    const scoreText = document.getElementById("scoreText");
+
+    function visibleQuestions() {
+      return questions.filter(q => currentFilter === "all" || q.paper === currentFilter);
+    }
+
+    function updateScore() {
+      const visible = visibleQuestions();
+      let done = 0;
+      let correct = 0;
+      visible.forEach((q) => {
+        const key = questions.indexOf(q);
+        if (answered.has(key)) {
+          done++;
+          if (answered.get(key) === q.answer) correct++;
+        }
+      });
+      scoreText.textContent = `得分：${correct} / ${done}`;
+    }
+
+    function renderQuiz() {
+      quizList.innerHTML = "";
+      visibleQuestions().forEach((item) => {
+        const index = questions.indexOf(item);
+        const selected = answered.get(index);
+        const card = document.createElement("article");
+        card.className = "question-card";
+
+        const head = document.createElement("div");
+        head.className = "q-head";
+        head.innerHTML = `<strong>${item.q}</strong><span class="q-label">${item.label}</span>`;
+        card.appendChild(head);
+
+        item.options.forEach((text, optIndex) => {
+          const btn = document.createElement("button");
+          btn.className = "option";
+          btn.textContent = `${String.fromCharCode(65 + optIndex)}. ${text}`;
+          if (selected !== undefined) {
+            btn.disabled = true;
+            if (optIndex === item.answer) btn.classList.add("correct");
+            if (optIndex === selected && selected !== item.answer) btn.classList.add("wrong");
+          }
+          btn.addEventListener("click", () => {
+            if (!answered.has(index)) {
+              answered.set(index, optIndex);
+              renderQuiz();
+            }
+          });
+          card.appendChild(btn);
+        });
+
+        const analysis = document.createElement("div");
+        analysis.className = "analysis-box";
+        if (selected !== undefined) {
+          analysis.classList.add("show");
+          const result = selected === item.answer ? "答对了" : `答错了，正确答案是 ${String.fromCharCode(65 + item.answer)}`;
+          analysis.innerHTML = `<strong>${result}。</strong><br>导师解析：${item.explain}`;
+        }
+        card.appendChild(analysis);
+        quizList.appendChild(card);
+      });
+      updateScore();
+    }
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        renderQuiz();
+      });
+    });
+
+    document.getElementById("resetQuiz").addEventListener("click", () => {
+      answered.clear();
+      renderQuiz();
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>
