@@ -115,6 +115,17 @@
       min-height: 148px;
       border-left: 6px solid var(--green);
     }
+    .num-card {
+      min-height: 132px;
+      border-top: 5px solid var(--blue);
+    }
+    .num {
+      display: block;
+      color: var(--red);
+      font-size: 30px;
+      line-height: 1.05;
+      font-weight: 900;
+    }
     .big {
       display: block;
       font-size: 34px;
@@ -280,6 +291,15 @@
       border: 1px solid #c7e1ec;
     }
     .analysis-box.show { display: block; }
+    .empty-state {
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      background: #fbfdfc;
+      color: var(--muted);
+      font-weight: 800;
+    }
     .score {
       font-weight: 900;
       color: #123229;
@@ -391,6 +411,43 @@
           </div>
         </div>
       </section>
+
+      <section>
+        <h2>3. 必考数字速查卡片</h2>
+        <p class="small-note">考前最后扫这里：数字题不要靠理解，直接背。</p>
+        <div class="grid three">
+          <div class="card num-card">
+            <span class="num">75 / 53</span>
+            <strong>卷一及格线</strong>
+            <p>75 题，70% 及格，至少答对 53 题。</p>
+          </div>
+          <div class="card num-card">
+            <span class="num">50 / 35</span>
+            <strong>卷三及格线</strong>
+            <p>50 题，70% 及格，至少答对 35 题。</p>
+          </div>
+          <div class="card num-card">
+            <span class="num">4 / 2</span>
+            <strong>保险代理人上限</strong>
+            <p>最多代表 4 家保险公司，其中最多 2 家为人寿 / 长期保险公司。</p>
+          </div>
+          <div class="card num-card">
+            <span class="num">21 天</span>
+            <strong>长期保险冷静期</strong>
+            <p>交付保单或发出通知书后起算；投连险退款可能受投资价值影响。</p>
+          </div>
+          <div class="card num-card">
+            <span class="num">30 / 31 天</span>
+            <strong>宽限期</strong>
+            <p>续期保费迟交的缓冲期，不是新保单反悔期。</p>
+          </div>
+          <div class="card num-card">
+            <span class="num">2 年</span>
+            <strong>不可异议 / 自杀条款</strong>
+            <p>常见考法看“两年”与例外：欺诈、自杀条款、违法等。</p>
+          </div>
+        </div>
+      </section>
     </div>
 
     <div id="paper1" class="tab-panel">
@@ -407,7 +464,28 @@
         <div class="formula">口诀：<strong>纯粹可保，投机不保。</strong></div>
         <div class="mentor"><strong>例子：</strong>房子失火是纯粹风险；买股票亏钱是投机风险。保险公司不负责你炒股亏损。</div>
 
-        <h3>2. 保险合同的六个要素</h3>
+        <div class="grid two">
+          <div class="card">
+            <h4><span class="hot">危险 Peril</span>：直接原因</h4>
+            <ul>
+              <li>Peril 是导致损失的<span class="hot">直接原因</span>。</li>
+              <li>考试例子：火灾、爆炸、盗窃、风暴。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>房子被火烧坏，火灾就是 Peril。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">危险因素 Hazard</span>：增加机会的条件</h4>
+            <ul>
+              <li><mark>实质 Hazard</mark>：客观条件增加损失机会，如木屋更易失火。</li>
+              <li><mark>道德 Hazard</mark>：故意或不诚实行为，如故意纵火骗保。</li>
+              <li><mark>心理 Hazard</mark>：买了保险后粗心大意，如不锁门。</li>
+            </ul>
+            <p class="mentor"><strong>记法：</strong>Peril 是“打你的一拳”；Hazard 是“让这一拳更容易发生或更严重的条件”。</p>
+          </div>
+        </div>
+
+        <h3>2. 法律原则：保险合同与代理关系</h3>
+        <h4>保险合同的六个要素</h4>
         <ul>
           <li><mark>要约</mark>：一方提出投保或承保条件。</li>
           <li><mark>承诺</mark>：另一方接受。</li>
@@ -417,6 +495,35 @@
           <li><mark>合法性</mark>：合同目的不能违法。</li>
         </ul>
         <div class="formula">口诀：<strong>要承代，意能法。</strong></div>
+
+        <h4><span class="hot">代理关系 Law of Agency</span> 的产生方式</h4>
+        <div class="grid three">
+          <div class="card">
+            <h4><span class="hot">协议 Agreement</span></h4>
+            <ul>
+              <li>明确授权，最正常、最直接。</li>
+              <li>可以是书面，也可以按情况由口头或行为体现。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>保险公司正式授权某人为代理人销售保单。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">追认 Ratification</span></h4>
+            <ul>
+              <li>先没有授权，但事后被本人认可。</li>
+              <li>白话：先斩后奏，后来老板认账。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>某人先替公司接了业务，公司事后确认接受。</p>
+          </div>
+          <div class="card">
+            <h4><span class="hot">不容反悔 / 表见代理 Estoppel</span></h4>
+            <ul>
+              <li>本人让第三方合理误以为某人有代理权。</li>
+              <li>事后不得否认代理关系。</li>
+            </ul>
+            <p class="mentor"><strong>例子：</strong>公司长期让某人以代理身份接触客户，客户合理相信他有权，公司不能轻易说“不关我事”。</p>
+          </div>
+        </div>
+        <div class="formula">口诀：<strong>代理三来源：明授权、后追认、装出来就别反悔。</strong></div>
 
         <h3>3. 六大基本原则：必背核心</h3>
         <div class="grid two">
@@ -554,9 +661,19 @@
               <td>保单价值和投资表现挂钩；投资风险通常由客户承担。</td>
               <td>保险壳里面放投资，赚亏看投资表现，不保证稳赚。</td>
             </tr>
+            <tr>
+              <td><span class="hot">年金 Annuity</span></td>
+              <td>用一笔或多笔资金，换取日后定期收入。</td>
+              <td>寿险防“死得太早”；年金防“活得太长，钱不够花”。</td>
+            </tr>
+            <tr>
+              <td><span class="hot">分红 / 非分红 Participating / Non-participating</span></td>
+              <td>分红可分享保险公司利润；非分红利益较固定。</td>
+              <td>分红像有机会分蛋糕；非分红就是条款先写死。</td>
+            </tr>
           </tbody>
         </table>
-        <div class="formula">口诀：<strong>定期便宜无现金，终身长期有价值，两全到期也给，投连风险自己扛。</strong></div>
+        <div class="formula">口诀：<strong>定期便宜无现金，终身长期有价值，两全到期也给，投连风险自己扛；寿险怕早死，年金怕长寿；分红看利润，非分红看固定。</strong></div>
 
         <h3>2. 寿险保单常见条款</h3>
         <div class="grid two">
@@ -661,9 +778,10 @@
         <p class="small-note">以下是原创 IIQE 风格模拟题，按高频官方考点设计，不是官方题库或泄题。点击选项后会立即显示对错和导师解析。</p>
         <div class="quiz-top">
           <div class="filter-row">
-            <button class="filter-btn active" data-filter="all">全部 30 题</button>
-            <button class="filter-btn" data-filter="p1">卷一 15 题</button>
-            <button class="filter-btn" data-filter="p3">卷三 15 题</button>
+            <button class="filter-btn active" data-filter="all">全部 60 题</button>
+            <button class="filter-btn" data-filter="p1">卷一 30 题</button>
+            <button class="filter-btn" data-filter="p3">卷三 30 题</button>
+            <button class="filter-btn" data-filter="wrong">只练错题 <span id="wrongCount">0</span></button>
           </div>
           <div class="filter-row">
             <span class="score" id="scoreText">得分：0 / 0</span>
@@ -916,6 +1034,246 @@
         options: ["标准承保、加费承保、除外责任、拒保", "分红、退保、贷款、复效", "要约、承诺、代价、合法性", "代位、分担、近因、弥偿"],
         answer: 0,
         explain: "核保决定四条路：正常就标准承保，风险高可加费，某些风险不保叫除外，风险太高就拒保。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 16",
+        q: "在保险术语中，Peril（危险）最准确是指什么？",
+        options: ["导致损失的直接原因", "增加损失机会的环境或条件", "投保人故意隐瞒的事实", "保险合同的法律要素"],
+        answer: 0,
+        explain: "Peril 是直接造成损失的原因，例如火灾烧毁房屋。Hazard 才是增加损失机会的条件。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 17",
+        q: "Hazard（危险因素）在保险中最准确是指什么？",
+        options: ["造成损失的最后一个原因", "增加损失发生机会或严重程度的条件", "保险人赔偿后的追偿权", "投机风险的获利机会"],
+        answer: 1,
+        explain: "Hazard 不是直接损失原因，而是让损失更容易发生或更严重的条件。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 18",
+        q: "木屋比钢筋混凝土房屋更容易受火灾严重损毁，这属于哪类 Hazard？",
+        options: ["实质危险因素 Physical Hazard", "道德危险因素 Moral Hazard", "心理危险因素 Morale Hazard", "投机危险因素 Speculative Hazard"],
+        answer: 0,
+        explain: "木屋是客观物质条件，增加火灾损失机会和严重程度，属于实质危险因素。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 19",
+        q: "投保人故意纵火骗取保险赔款，属于哪类 Hazard？",
+        options: ["实质危险因素", "道德危险因素", "心理危险因素", "自然危险因素"],
+        answer: 1,
+        explain: "故意、不诚实、欺诈行为属于道德危险因素。看到骗保、故意纵火，直接想到 Moral Hazard。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 20",
+        q: "某人买了盗窃保险后变得粗心，经常不锁门，这属于哪类 Hazard？",
+        options: ["实质危险因素", "道德危险因素", "心理危险因素", "法律危险因素"],
+        answer: 2,
+        explain: "不是故意骗保，而是因为有保险就松懈粗心，这叫心理危险因素 Morale Hazard。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 21",
+        q: "保险公司明确授权某人代表公司销售保险，这种代理关系主要由哪种方式产生？",
+        options: ["协议 Agreement", "追认 Ratification", "不容反悔 Estoppel", "近因 Proximate Cause"],
+        answer: 0,
+        explain: "明确授权就是协议产生代理关系，最常见、最直接。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 22",
+        q: "某人未获授权先代表公司处理业务，公司事后认可该行为，这属于哪种代理关系产生方式？",
+        options: ["协议 Agreement", "追认 Ratification", "分担 Contribution", "弥偿 Indemnity"],
+        answer: 1,
+        explain: "先斩后奏，事后认可，就是追认。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 23",
+        q: "公司行为使客户合理相信某人有代理权，公司事后不得否认，这属于什么？",
+        options: ["不容反悔 / 表见代理 Estoppel", "代位 Subrogation", "最高诚信", "可保利益"],
+        answer: 0,
+        explain: "公司让第三方合理相信有代理权，后来不能翻脸否认，这就是 Estoppel。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 24",
+        q: "保险合同中的“代价 Consideration”最接近下列哪项？",
+        options: ["客户交保费，保险人承担风险", "客户指定受益人", "保险人发宣传册", "中介收取佣金"],
+        answer: 0,
+        explain: "合同要素里的代价，是双方交换的价值：客户交保费，保险人承担保险责任。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 25",
+        q: "投保人隐瞒会影响承保决定的重要事实，主要违反哪项原则？",
+        options: ["最高诚信", "分担", "近因", "代位"],
+        answer: 0,
+        explain: "重要事实披露属于最高诚信。健康、职业、过往索赔都可能是重要事实。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 26",
+        q: "可保利益原则最核心的判断是？",
+        options: ["投保人是否愿意交保费", "保险标的出事是否会令投保人有法律认可的损失", "保险人是否愿意做广告", "保单是否有现金价值"],
+        answer: 1,
+        explain: "可保利益不是想买就有，而是出事会让你受损，且这种利益受法律认可。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 27",
+        q: "下列哪项最能体现弥偿原则？",
+        options: ["赔偿使被保险人回复损失前财务状态", "赔偿一定高于实际损失", "寿险死亡赔偿一定按维修费计算", "保险人赔偿后不能追偿"],
+        answer: 0,
+        explain: "弥偿就是赔回损失前状态，不让被保险人因损失而获利。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 28",
+        q: "两份有效财产保险承保同一仓库同一火灾损失，赔款应如何处理最合理？",
+        options: ["两份保单各赔全额", "保险人之间按分担原则分摊", "一定由客户选择其中较高一份赔", "一定不赔"],
+        answer: 1,
+        explain: "同一损失被多份弥偿保险承保，防止双重获利，所以保险人之间按比例分担。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 29",
+        q: "近因原则判断的是哪一个原因？",
+        options: ["时间上最后发生的原因", "造成损失的主导和有效原因", "金额最高的原因", "客户最先想到的原因"],
+        answer: 1,
+        explain: "近因不是最后原因，而是主导、有效导致损失的原因。"
+      },
+      {
+        paper: "p1",
+        label: "卷一 终极补漏题 30",
+        q: "下列哪项关于保险经纪 Broker 的说法最正确？",
+        options: ["通常代表客户安排保险", "通常代表保险公司承保", "可以同时作为同一交易中的代理人", "主要任务是保护保险公司利润"],
+        answer: 0,
+        explain: "Broker 站在客户一边安排保险；Agent 才是代表保险公司。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 16",
+        q: "年金 Annuity 主要处理哪一种风险？",
+        options: ["死得太早，家庭失去经济支柱", "活得太长，退休收入不够", "汽车被盗", "房屋火灾"],
+        answer: 1,
+        explain: "人寿保险主要防早死；年金主要防长寿风险，也就是活太久钱不够花。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 17",
+        q: "下列哪项最能区分人寿保险与年金？",
+        options: ["人寿保险防死得太早，年金防活得太长", "两者都只赔火灾损失", "年金一定没有任何收入给付", "人寿保险只适用于一般保险"],
+        answer: 0,
+        explain: "这是卷三产品类高频对比：寿险解决早死带来的经济缺口，年金解决长寿带来的收入不足。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 18",
+        q: "分红保单 Participating Policy 的核心特点是？",
+        options: ["可分享保险公司的利润或盈余", "所有利益完全固定且无红利", "一定与股票基金直接挂钩", "一定没有死亡保障"],
+        answer: 0,
+        explain: "Participating 的关键词是参与分红，可分享保险公司利润；但分红通常不是保证。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 19",
+        q: "非分红保单 Non-participating Policy 的典型特点是？",
+        options: ["利益通常较固定，不分享保险公司利润", "必定每年派发红利", "保单价值必定跟投资基金挂钩", "只适用于汽车保险"],
+        answer: 0,
+        explain: "非分红保单不参与保险公司利润分配，利益通常按条款较固定。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 20",
+        q: "关于投资相连保单，下列哪项最正确？",
+        options: ["投资风险通常由保单持有人承担", "保险人保证投资不会亏损", "一定属于非分红保单且无费用", "一定没有任何保险保障"],
+        answer: 0,
+        explain: "投连险价值随投资表现变动，风险通常由客户承担，这是最常考点。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 21",
+        q: "宽限期与冷静期的关键区别是？",
+        options: ["宽限期处理续期保费迟交，冷静期处理新保单反悔", "两者都只适用于索偿", "冷静期是复效申请期限", "宽限期一定为 21 天"],
+        answer: 0,
+        explain: "冷静期是新单取消；宽限期是旧保单续期迟交。考试很爱混淆。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 22",
+        q: "续期保费在宽限期内仍未缴交，通常可能导致什么结果？",
+        options: ["保单可能失效", "保单一定自动加保", "保险人必须派发红利", "保单一定转为年金"],
+        answer: 0,
+        explain: "宽限期是缓冲，不是永久延期。宽限期后仍不缴费，保单可能失效。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 23",
+        q: "不可异议条款通常限制保险人在指定期间后因哪类问题撤销保单？",
+        options: ["非欺诈性误述", "所有欺诈行为", "所有违法合同", "无可保利益的保单"],
+        answer: 0,
+        explain: "不可异议保护的是过了期限后的非欺诈性误述，不是给欺诈行为免死金牌。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 24",
+        q: "自杀条款通常最关注保单生效后的哪段时期？",
+        options: ["保单初期指定期间", "保单期满后 30 年", "索偿完成后", "退保以后"],
+        answer: 0,
+        explain: "自杀条款防止刚投保就利用寿险取得赔款，所以重点看保单初期指定期间。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 25",
+        q: "下列哪项最符合复效 Reinstatement？",
+        options: ["失效保单在规定期限内申请恢复，并补交欠费及可能重新核保", "客户在冷静期内取消新保单", "客户指定新的受益人", "保险人作出分红"],
+        answer: 0,
+        explain: "复效是保单失效后恢复，不是冷静期取消。常见要求是补费、利息和可保证明。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 26",
+        q: "Accidental Death Rider 通常在什么情况下给付额外保障？",
+        options: ["因意外导致身故并符合条款", "任何疾病确诊", "续期保费迟交", "保单分红下降"],
+        answer: 0,
+        explain: "AD Rider 看意外身故；CI 看危疾；DI 看伤残收入，别混。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 27",
+        q: "Critical Illness Rider 的主要给付触发条件通常是？",
+        options: ["确诊指定严重疾病并符合条款", "任何门诊小病都报销", "保单持有人忘交保费", "保险公司年度盈利"],
+        answer: 0,
+        explain: "危疾附加保障看指定严重疾病，不是普通医疗报销。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 28",
+        q: "Waiver of Premium Rider 与 Disability Income Rider 的区别是？",
+        options: ["WP 豁免保费，DI 给伤残收入", "WP 给投资收益，DI 取消保障", "两者都只处理冷静期", "两者都保证分红"],
+        answer: 0,
+        explain: "WP 是不用继续交保费；DI 是伤残后给收入补偿。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 29",
+        q: "客户用新保单替换旧保单时，CPD 最主要提醒客户什么？",
+        options: ["旧保单被替换可能有费用、保障、等候期和核保风险", "新保单一定保证更好", "旧保单一定没有价值", "所有替换都不需要披露"],
+        answer: 0,
+        explain: "CPD 不是推销新单，而是让客户明白替换旧单可能损失利益并产生新风险。"
+      },
+      {
+        paper: "p3",
+        label: "卷三 终极补漏题 30",
+        q: "核保人认为风险较正常人高但仍可接受，最可能作出哪项决定？",
+        options: ["加费承保", "自动派发红利", "取消冷静期", "必定标准承保"],
+        answer: 0,
+        explain: "风险高但还能接，常见处理是加费承保；风险太高才拒保。"
       }
     ];
 
@@ -933,11 +1291,17 @@
 
     let currentFilter = "all";
     const answered = new Map();
+    const wrongBook = new Set();
     const quizList = document.getElementById("quizList");
     const scoreText = document.getElementById("scoreText");
+    const wrongCount = document.getElementById("wrongCount");
 
     function visibleQuestions() {
-      return questions.filter(q => currentFilter === "all" || q.paper === currentFilter);
+      return questions.filter((q, index) => {
+        if (currentFilter === "all") return true;
+        if (currentFilter === "wrong") return wrongBook.has(index);
+        return q.paper === currentFilter;
+      });
     }
 
     function updateScore() {
@@ -952,10 +1316,19 @@
         }
       });
       scoreText.textContent = `得分：${correct} / ${done}`;
+      wrongCount.textContent = wrongBook.size;
     }
 
     function renderQuiz() {
       quizList.innerHTML = "";
+      if (currentFilter === "wrong" && wrongBook.size === 0) {
+        const empty = document.createElement("div");
+        empty.className = "empty-state";
+        empty.textContent = "错题本目前是空的。先刷一轮题，答错的题会自动收进这里。";
+        quizList.appendChild(empty);
+        updateScore();
+        return;
+      }
       visibleQuestions().forEach((item) => {
         const index = questions.indexOf(item);
         const selected = answered.get(index);
@@ -979,6 +1352,11 @@
           btn.addEventListener("click", () => {
             if (!answered.has(index)) {
               answered.set(index, optIndex);
+              if (optIndex !== item.answer) {
+                wrongBook.add(index);
+              } else {
+                wrongBook.delete(index);
+              }
               renderQuiz();
             }
           });
